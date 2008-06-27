@@ -3,7 +3,7 @@ require 'fileutils'
 include FileUtils
 
 $:.unshift File.expand_path('./lib')
-require 'git-blog/core'
+require 'git-blog'
 
 desc 'Create a new git-blog'
 task :create, :destination do |_, params|
@@ -13,7 +13,7 @@ task :create, :destination do |_, params|
   mkdir destination rescue nil
   File.open destination/:Rakefile.rb, File::RDWR|File::TRUNC|File::CREAT do |rakefile|
     rakefile.puts "$:.unshift File.expand_path('#{GitBlog::Scope / :lib}')"
-    rakefile.puts "require 'git-blog'"
+    rakefile.puts "require 'git-blog.rake'"
     rakefile.print "\n"; rakefile.close
   end
   puts "** git-blog created at #{destination}!"
