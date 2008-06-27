@@ -26,10 +26,10 @@ Echoe.taskify do
                         " -   git blog init"
   end
   
-  desc 'tests packaged files to ensure they are all present'
+  desc 'Test packaged files to ensure they are all present'
   task :verify => :package do
     # An error message will be displayed if files are missing
-    if system %(ruby -e "require 'rubygems'; require 'merb-core'; require 'pkg/merb_strokedb-#{Merb::Orms::StrokeDB::VERSION}/lib/merb_strokedb'")
+    if system %(ruby -e "require 'rubygems'; require 'pkg/git-blog-#{GitBlog::VERSION}/lib/git-blog'")
       puts "\nThe library files are present"
     end
   end
@@ -44,5 +44,5 @@ Echoe.taskify do
   
   # desc 'Run specs, clean tree, update manifest, run coverage, and install gem!'
   desc 'Clean tree, update manifest, and install gem!'
-  task :magic => [:clean, :manifest, :install]
+  task :magic => [:manifest, :install]
 end
