@@ -1,12 +1,15 @@
 class String
+  UnacceptableCharacters = /[^a-z0-9]/
+  SafeCharacter = '_'
   include File::Extension
   
   def slugize
     string = self
     string = string.downcase
     string = string.strip
-    string = string.gsub /[^a-z0-9_]/, '_'
-    string = string.gsub /_+/, '_'
+    string = string.gsub /#{UnacceptableCharacters}/, SafeCharacter
+    string = string.gsub /_+/, SafeCharacter
+    string = string.gsub /(^#{UnacceptableCharacters}|#{UnacceptableCharacters}$)/, ''
   end
   
   def /(o)
