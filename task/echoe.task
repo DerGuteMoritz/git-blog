@@ -1,0 +1,14 @@
+class Echoe
+  def self.taskify &block
+    
+    begin
+      require 'echoe'
+      namespace :echoe, &block
+    rescue LoadError
+      puts "(You need to install the echoe and rspec gems if you wish to" +
+           " perform development operations, such as installing from source" +
+           " or running specs)"
+    end
+    
+  end
+end
