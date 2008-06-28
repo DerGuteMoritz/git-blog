@@ -11,7 +11,7 @@ Echoe.taskify do
     g.url = 'http://find.elliottcable.name/git-blog'
     g.description = 'simple, uber-minimalistic blogging software, that uses git as a storage system for posts, and deploys to your webserver with git as well. no dynamic content, by design.'
     
-    g.dependencies = ['git', 'haml']
+    g.dependencies = ['mojombo-grit', 'haml']
     
     g.manifest_name = '.manifest'
     g.clean_pattern = ['pkg', 'meta', '*.gem']

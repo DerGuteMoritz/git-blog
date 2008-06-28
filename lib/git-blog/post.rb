@@ -9,9 +9,11 @@ module GitBlog
         Post.new :slug => File.basename(path).split('.').first
       end
       
-      # Returns a new Post object, based on a git commit
+      # Returns a new Post object, based on a git commit object
+      # TODO: Implement this!
       def find commit
-        
+        raise ArgumentError, 'must pass a Grit::Commit object' unless commit.is_a?(Grit::Commit)
+        commit
       end
     end
     
@@ -24,6 +26,7 @@ module GitBlog
       yield if block_given?
     end
     
+    # TODO: Make #title and #slug use their opposites in the unless... blocks, without causing infinite recursion
     def title
       @title ||= Post.title slug unless @slug.nil?
       @title
