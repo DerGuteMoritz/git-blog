@@ -2,4 +2,5 @@
 require 'git-blog/core_ext'
 
 require 'rubygems'
+require 'mocha'
 require 'mojombo-grit'

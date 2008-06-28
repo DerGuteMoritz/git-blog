@@ -100,6 +100,7 @@ On a Linux or Windows machine, you're a bit more on your own, as I don't know ho
 To develop and contribute to git-blog, you also need:
 
 * `gem install rspec`
+* `gem install mocha`
 * `gem install rake`
 * `gem install rcov`
 * `gem install technomancy-ditz --source=http://gems.github.com`

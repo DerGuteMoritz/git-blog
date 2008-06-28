@@ -22,7 +22,7 @@ end
 
 describe Grit::Tree do
   
-  # TODO: Require Mocha, so I can mock a repo and actually spec this
+  # TODO: Actually spec this
   it "should convert to a name/object hash" do
     
   end
